@@ -1,0 +1,80 @@
+🧠 SkillByte 02E – 3/4-Term APs: The Symmetry Shortcut
+🎯 Learning Objective:
+ Solve 3-term and 4-term AP problems using symmetry and algebra shortcuts — even for sum, GP, or square-based questions.
+
+Step 1: Conceptual Nudge – “Prize Money Logic”
+🏆 Your school gives prizes in an AP:
+• 2nd Prize = ₹x
+ • 1st Prize = ₹x + d
+ • Special Prize = ₹x + 2d
+Notice the equal jumps?
+ That’s the power of symmetry in APs!
+📌 Setup tricks:
+• 3 terms → (x − d), x, (x + d)
+ • 4 terms → (x − 3d), (x − d), (x + d), (x + 3d)
+This makes solving way easier 🧠
+
+Step 2: Quiz Time – CBSE PYQ Style
+📘 CBSE 2023 Question:
+ Q. Three numbers in AP sum to 24.
+ If 1, 2, and 6 are added to them respectively, the result forms a GP. Find the numbers.
+Choose:
+ ► A) 4, 8, 12
+ ► B) 6, 8, 10
+ ► C) 3, 8, 13
+✅ Correct Answer: B) 6, 8, 10
+📐 Let’s solve:
+• Let AP = (x − d), x, (x + d)
+ • Sum: 3x = 24 ⇒ x = 8
+ • New sequence = (8 − d) + 1, 8 + 2, (8 + d) + 6
+ → (9 − d), 10, (14 + d)
+• For GP: middle² = first × third
+ → 10² = (9 − d)(14 + d)
+ → 100 = 126 + 5d − d²
+ → Solve: d² − 5d − 26 = 0
+ → d = ±2 → Try d = 2 ⇒ AP = 6, 8, 10 ✅
+❌ A and C?
+ Plug and test — they won’t satisfy GP logic.
+
+Step 3: Explain It – Symmetry Is Your Shortcut
+🧠 Why use symmetry?
+• Middle term in 3-term AP = average
+ • Outer terms in 4-term AP = mirror images
+🎯 Steps for any 3/4 term AP:
+1️⃣ Set up using (x − d), x, (x + d)
+ 2️⃣ Use sum / square / GP / condition
+ 3️⃣ Solve for x and d
+🧠 CBSE Tip: Start with correct format — it makes everything easier.
+
+Step 4: Challenge – 4-Term Square Sum Puzzle
+📘 Q. Four numbers in AP sum to 20.
+ Their squares sum to 120. What are the numbers?
+Choose:
+ ► A) 1, 3, 5, 11
+ ► B) 2, 4, 6, 8
+ ► C) 1, 4, 7, 8
+✅ Correct Answer: B) 2, 4, 6, 8
+📐 Let’s solve:
+• Let terms = (x − 3d), (x − d), (x + d), (x + 3d)
+ • Sum = 4x = 20 ⇒ x = 5
+Squares:
+ (5 − 3d)² + (5 − d)² + (5 + d)² + (5 + 3d)²
+ → Add: 4×25 + 20d² = 120
+ → 100 + 20d² = 120
+ → d² = 1 ⇒ d = ±1
+ → Try x = 5, d = 1 ⇒ AP = 2, 4, 6, 8 ✅
+❌ A or C?
+ They either don’t sum to 20 or fail square sum = 120
+
+Step 5: Reflect & Apply – Real Practice Time
+🧠 Symmetry applies to many situations:
+📘 Try these:
+Q1.
+ 3 angles of a triangle are in AP.
+ Middle angle = 60°
+ → What are the other two?
+(Hint: Use (x − d), 60°, (x + d), and total = 180°)
+Q2.
+ Mon–Thu step counts form a 4-term AP.
+ Total = 8000 steps, Wed = 2300
+ → Use symmetry to find the rest!

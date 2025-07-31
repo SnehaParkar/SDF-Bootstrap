@@ -1,0 +1,79 @@
+SkillByte 02G – Real-World APs: From Steps to Savings
+🎯 Learning Objective:
+ Use the nth term formula aₙ = a + (n – 1)·d to solve real-life Arithmetic Progression problems like savings, steps, deliveries, and more!
+
+Step 1: Conceptual Nudge – “Your Life Runs on Patterns”
+👟 Your fitness tracker shows:
+ • Day 1 = 5,000 steps
+ • Day 2 = 5,300
+ • Day 3 = 5,600...
+You’re adding +300 steps daily — that’s an AP ✅
+Want to know:
+ 📈 Steps on Day 10?
+ 🎯 When you’ll hit 10,000 steps?
+Use the formula:
+ 👉 aₙ = a + (n – 1)·d
+This is how your progress becomes predictable 🔍
+
+Step 2: Quiz Time – NCERT Style
+📘 Q. A child saves ₹500 at age 5, increasing by ₹100 each year. What’s the saving at age 15?
+Choose:
+ ► A) ₹1,400
+ ► B) ₹1,500
+ ► C) ₹1,600
+✅ Correct Answer: B) ₹1,500
+📐 Let’s solve:
+• a = ₹500
+ • d = ₹100
+ • n = 11 (from age 5 to 15)
+a₁₁ = 500 + 10×100 = ✅ ₹1,500
+❌ Picked A or C?
+ Double-check n — it’s 11 years, not 10!
+
+Step 3: Explain It – AP Formula in the Real World
+💡 Real-life APs are everywhere:
+• a = Starting value
+ • d = Daily/weekly/monthly change
+ • n = Position you want to predict
+📌 Use:
+ 👉 aₙ = a + (n – 1)·d
+📘 CBSE Marking Tip:
+ • Formula = 1 mark
+ • Substitution = 1 mark
+ • Final answer = 1 mark ✅
+
+Step 4: Challenge – CBSE Application Question
+📘 Q. Pizza delivery charges ₹50 for 1st km and ₹15 per extra km. What’s the cost for 12 km?
+Choose:
+ ► A) ₹215
+ ► B) ₹200
+ ► C) ₹185
+✅ Correct Answer: A) ₹215
+📐 Let’s solve:
+• a = ₹50
+ • d = ₹15
+ • For 12th km = 11 additional charges
+a₁₂ = 50 + 11×15 = ✅ ₹215
+❌ Picked B or C?
+ You may have skipped the 1st km’s special price.
+
+Step 5: Reflect & Apply – Your World is Full of APs!
+🧠 Try these yourself:
+📘 Study Plan:
+ Day 1 = 2 hrs → +30 mins daily
+ → Day 7?
+• a = 120 mins, d = 30
+ → a₇ = 120 + 6×30 = ✅ 300 mins = 5 hrs
+📘 Sales Plan:
+ Month 1 = 20 sales → +3 each month
+ → Month 6 = ?
+ → a₆ = 20 + 5×3 = ✅ 35 sales
+📝 Your Turn:
+ Make your own AP story:
+Example:
+ /"I drank 1.5L water on Day 1 and added 250ml daily.
+ How much on Day 10?/"
+a = 1500 ml, d = 250
+ → a₁₀ = 1500 + 9×250 = ✅ 3,750 ml
+Drop your own AP example — let’s bring numbers to life! 🔥
+

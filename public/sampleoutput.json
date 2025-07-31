@@ -1,0 +1,632 @@
+{
+	"id": null,
+	"tenantId": "441194",
+	"name": "Sneha_Test_with_data",
+	"created": null,
+	"flowNodes": [
+		{
+			"id": "main_message-cf9420",
+			"flowNodeType": "Message",
+			"isStartNode": true,
+			"flowNodePosition": {
+				"posX": "197.81879824970395",
+				"posY": "-197.62459973365063"
+			},
+			"flowReplies": [
+				{
+					"flowReplyType": "Text",
+					"data": "SkillByte 02G – Real-World APs: From Steps to Savings\n🎯 Learning Objective:\n Use the nth term formula aₙ = a + (n – 1)·d to solve real-life Arithmetic Progression problems like savings, steps, deliveries, and more!\n\n",
+					"caption": "",
+					"mimeType": ""
+				}
+			]
+		},
+		{
+			"id": "main_buttons-a08082",
+			"flowNodeType": "InteractiveButtons",
+			"isStartNode": false,
+			"flowNodePosition": {
+				"posX": "596.1779996195008",
+				"posY": "-147.66019965755078"
+			},
+			"interactiveButtonsHeader": {
+				"type": "Text",
+				"text": "Ready to begin?",
+				"media": null
+			},
+			"interactiveButtonsBody": "<p>Click below to start</p>",
+			"interactiveButtonsItems": [
+				{
+					"id": "51904807",
+					"buttonText": "Let's go",
+					"nodeResultId": ""
+				}
+			],
+			"interactiveButtonsUserInputVariable": "",
+			"interactiveButtonsDefaultNodeResultId": ""
+		},
+		{
+			"id": "main_buttons-9aa2f5",
+			"flowNodeType": "InteractiveButtons",
+			"isStartNode": false,
+			"flowNodePosition": {
+				"posX": "992.8932002282995",
+				"posY": "-690"
+			},
+			"interactiveButtonsHeader": {
+				"type": "Text",
+				"text": "<p>Let's start!</p>",
+				"media": null
+			},
+			"interactiveButtonsBody": "1: Conceptual Nudge – “Your Life Runs on Patterns”\n👟 Your fitness tracker shows:\n • Day 1 = 5,000 steps\n • Day 2 = 5,300\n • Day 3 = 5,600...\nYou’re adding +300 steps daily — that’s an AP ✅\nWant to know:\n 📈 Steps on Day 10?\n 🎯 When you’ll hit 10,000 steps?\nUse the formula:\n 👉 aₙ = a + (n – 1)·d\nThis is how your progress becomes predictable 🔍\n\n",
+			"interactiveButtonsItems": [
+				{
+					"id": "ef40fa71",
+					"buttonText": "Tell me more",
+					"nodeResultId": ""
+				}
+			],
+			"interactiveButtonsUserInputVariable": "",
+			"interactiveButtonsDefaultNodeResultId": ""
+		},
+		{
+			"id": "main_message-dc4e50",
+			"flowNodeType": "Message",
+			"isStartNode": false,
+			"flowNodePosition": {
+				"posX": "990.9363812191366",
+				"posY": "200.59237085524472"
+			},
+			"flowReplies": [
+				{
+					"flowReplyType": "Text",
+					"data": "<p><strong>Sorry we didnt get the response, can you answer again?</strong></p>",
+					"caption": "",
+					"mimeType": ""
+				}
+			]
+		},
+		{
+			"id": "main_buttons-02dbd3",
+			"flowNodeType": "InteractiveButtons",
+			"isStartNode": false,
+			"flowNodePosition": {
+				"posX": "1386.4822000380498",
+				"posY": "-690.4893953198612"
+			},
+			"interactiveButtonsHeader": {
+				"type": "Text",
+				"text": "Mini Quiz",
+				"media": null
+			},
+			"interactiveButtonsBody": "<p>A child saves ₹500 at age 5, increasing by ₹100 each year. What’s the saving at age 15?</p><p><p>A) ₹1,400</p>\n<p>B) ₹1,500</p>\n<p>C) ₹1,600</p></p>",
+			"interactiveButtonsFooter": "📘 Important Question",
+			"interactiveButtonsItems": [
+				{
+					"id": "ea634dfa",
+					"buttonText": "A) ₹1,400",
+					"nodeResultId": ""
+				},
+				{
+					"id": "9477ab05",
+					"buttonText": "B) ₹1,500",
+					"nodeResultId": ""
+				},
+				{
+					"id": "a8b24a75",
+					"buttonText": "C) ₹1,600",
+					"nodeResultId": ""
+				}
+			],
+			"interactiveButtonsUserInputVariable": "",
+			"interactiveButtonsDefaultNodeResultId": ""
+		},
+		{
+			"id": "main_message-f2f4fc",
+			"flowNodeType": "Message",
+			"isStartNode": false,
+			"flowNodePosition": {
+				"posX": "1389.033981543728",
+				"posY": "197.39211693810165"
+			},
+			"flowReplies": [
+				{
+					"flowReplyType": "Text",
+					"data": "<p><strong>Sorry we didnt get the response, can you answer again?</strong></p>",
+					"caption": "",
+					"mimeType": ""
+				}
+			]
+		},
+		{
+			"id": "main_buttons-3dd37f",
+			"flowNodeType": "InteractiveButtons",
+			"isStartNode": false,
+			"flowNodePosition": {
+				"posX": "1783.0936875762745",
+				"posY": "-1188.2347231703875"
+			},
+			"interactiveButtonsHeader": {
+				"type": "Text",
+				"text": "✅ That's Correct!",
+				"media": null
+			},
+			"interactiveButtonsBody": "<p>B) ₹1,500</p><p>• a = ₹500\n • d = ₹100\n • n = 11 (from age 5 to 15)\na₁₁ = 500 + 10×100 = ✅ ₹1,500</p>",
+			"interactiveButtonsItems": [
+				{
+					"id": "62b3d5b3",
+					"buttonText": "Ok, got it",
+					"nodeResultId": ""
+				}
+			],
+			"interactiveButtonsUserInputVariable": "",
+			"interactiveButtonsDefaultNodeResultId": ""
+		},
+		{
+			"id": "main_message-87476d",
+			"flowNodeType": "Message",
+			"isStartNode": false,
+			"flowNodePosition": {
+				"posX": "1783.3144302585938",
+				"posY": "-425.5001006665683"
+			},
+			"flowReplies": [
+				{
+					"flowReplyType": "Text",
+					"data": "<p><strong>Sorry we didnt get the response, can you answer again?</strong></p>",
+					"caption": "",
+					"mimeType": ""
+				}
+			]
+		},
+		{
+			"id": "main_buttons-9cbd7b",
+			"flowNodeType": "InteractiveButtons",
+			"isStartNode": false,
+			"flowNodePosition": {
+				"posX": "1785.2485235488493",
+				"posY": "-0.14894386059012277"
+			},
+			"interactiveButtonsHeader": {
+				"type": "Text",
+				"text": "❌ That's Incorrect!",
+				"media": null
+			},
+			"interactiveButtonsBody": "<p>Picked A or C? Double-check n — it’s 11 years, not 10!</p>",
+			"interactiveButtonsItems": [
+				{
+					"id": "6d0f3dcb",
+					"buttonText": "Ok, got it",
+					"nodeResultId": ""
+				}
+			],
+			"interactiveButtonsUserInputVariable": "",
+			"interactiveButtonsDefaultNodeResultId": ""
+		},
+		{
+			"id": "main_message-b1045b",
+			"flowNodeType": "Message",
+			"isStartNode": false,
+			"flowNodePosition": {
+				"posX": "1787.745444727636",
+				"posY": "692.4980964996264"
+			},
+			"flowReplies": [
+				{
+					"flowReplyType": "Text",
+					"data": "<p><strong>Sorry we didnt get the response, can you answer again?</strong></p>",
+					"caption": "",
+					"mimeType": ""
+				}
+			]
+		},
+		{
+			"id": "main_buttons-1b6935",
+			"flowNodeType": "InteractiveButtons",
+			"isStartNode": false,
+			"flowNodePosition": {
+				"posX": "2276.9473737893977",
+				"posY": "-690.90449609093"
+			},
+			"interactiveButtonsHeader": {
+				"type": "Text",
+				"text": "3: Explain It – AP Formula in the Real World",
+				"media": null
+			},
+			"interactiveButtonsBody": "💡 Real-life APs are everywhere:\n• a = Starting value\n• d = Daily/weekly/monthly change\n• n = Position you want to predict\n📌 Use:\n👉 aₙ = a + (n – 1)·d\n📘 CBSE Marking Tip:\n• Formula = 1 mark\n• Substitution = 1 mark\n• Final answer = 1 mark ✅",
+			"interactiveButtonsItems": [
+				{
+					"id": "d446a32b",
+					"buttonText": "Ok, got it",
+					"nodeResultId": ""
+				}
+			],
+			"interactiveButtonsUserInputVariable": "",
+			"interactiveButtonsDefaultNodeResultId": ""
+		},
+		{
+			"id": "main_message-7c58ab",
+			"flowNodeType": "Message",
+			"isStartNode": false,
+			"flowNodePosition": {
+				"posX": "2281.839520472687",
+				"posY": "203.62988258494102"
+			},
+			"flowReplies": [
+				{
+					"flowReplyType": "Text",
+					"data": "<p><strong>Sorry we didnt get the response, can you answer again?</strong></p>",
+					"caption": "",
+					"mimeType": ""
+				}
+			]
+		},
+		{
+			"id": "main_buttons-6fc14b",
+			"flowNodeType": "InteractiveButtons",
+			"isStartNode": false,
+			"flowNodePosition": {
+				"posX": "2669.7372707175678",
+				"posY": "-698.172883809983"
+			},
+			"interactiveButtonsHeader": {
+				"type": "Text",
+				"text": "Your next challenge",
+				"media": null
+			},
+			"interactiveButtonsBody": "<p>Pizza delivery charges ₹50 for 1st km and ₹15 per extra km. What’s the cost for 12 km?</p><p><p>A) ₹215</p>\n<p>B) ₹200</p>\n<p>C) ₹185</p></p>",
+			"interactiveButtonsFooter": "📘 Important Question",
+			"interactiveButtonsItems": [
+				{
+					"id": "4a8366a3",
+					"buttonText": "A) ₹215",
+					"nodeResultId": ""
+				},
+				{
+					"id": "55eb4d72",
+					"buttonText": "B) ₹200",
+					"nodeResultId": ""
+				},
+				{
+					"id": "dfc7914c",
+					"buttonText": "C) ₹185",
+					"nodeResultId": ""
+				}
+			],
+			"interactiveButtonsUserInputVariable": "",
+			"interactiveButtonsDefaultNodeResultId": ""
+		},
+		{
+			"id": "main_message-52a53c",
+			"flowNodeType": "Message",
+			"isStartNode": false,
+			"flowNodePosition": {
+				"posX": "2676.391565686949",
+				"posY": "206.26795701295964"
+			},
+			"flowReplies": [
+				{
+					"flowReplyType": "Text",
+					"data": "<p><strong>Sorry we didnt get the response, can you answer again?</strong></p>",
+					"caption": "",
+					"mimeType": ""
+				}
+			]
+		},
+		{
+			"id": "main_buttons-279eca",
+			"flowNodeType": "InteractiveButtons",
+			"isStartNode": false,
+			"flowNodePosition": {
+				"posX": "3167.940095966849",
+				"posY": "-1195.5438867552057"
+			},
+			"interactiveButtonsHeader": {
+				"type": "Text",
+				"text": "✅ That's Correct!",
+				"media": null
+			},
+			"interactiveButtonsBody": "<p>A) ₹215</p><p>• a = ₹50\n • d = ₹15\n • For 12th km = 11 additional charges\na₁₂ = 50 + 11×15 = ✅ ₹215</p>",
+			"interactiveButtonsItems": [
+				{
+					"id": "ce6f4e60",
+					"buttonText": "Ok, got it",
+					"nodeResultId": ""
+				}
+			],
+			"interactiveButtonsUserInputVariable": "",
+			"interactiveButtonsDefaultNodeResultId": ""
+		},
+		{
+			"id": "main_message-ad5cf3",
+			"flowNodeType": "Message",
+			"isStartNode": false,
+			"flowNodePosition": {
+				"posX": "3169",
+				"posY": "-394"
+			},
+			"flowReplies": [
+				{
+					"flowReplyType": "Text",
+					"data": "<p><strong>Sorry we didnt get the response, can you answer again?</strong></p>",
+					"caption": "",
+					"mimeType": ""
+				}
+			]
+		},
+		{
+			"id": "main_buttons-42b096",
+			"flowNodeType": "InteractiveButtons",
+			"isStartNode": false,
+			"flowNodePosition": {
+				"posX": "3169",
+				"posY": "-394"
+			},
+			"interactiveButtonsHeader": {
+				"type": "Text",
+				"text": "❌ That's Incorrect!",
+				"media": null
+			},
+			"interactiveButtonsBody": "<p>Picked B or C? You may have skipped the 1st km’s special price.</p>",
+			"interactiveButtonsItems": [
+				{
+					"id": "13680b4d",
+					"buttonText": "Ok, got it",
+					"nodeResultId": ""
+				}
+			],
+			"interactiveButtonsUserInputVariable": "",
+			"interactiveButtonsDefaultNodeResultId": ""
+		},
+		{
+			"id": "main_message-fa9954",
+			"flowNodeType": "Message",
+			"isStartNode": false,
+			"flowNodePosition": {
+				"posX": "3176.3234316060757",
+				"posY": "697.4710420810669"
+			},
+			"flowReplies": [
+				{
+					"flowReplyType": "Text",
+					"data": "<p><strong>Sorry we didnt get the response, can you answer again?</strong></p>",
+					"caption": "",
+					"mimeType": ""
+				}
+			]
+		},
+		{
+			"id": "main_buttons-c49c30",
+			"flowNodeType": "InteractiveButtons",
+			"isStartNode": false,
+			"flowNodePosition": {
+				"posX": "2276.9473737893977",
+				"posY": "-690.90449609093"
+			},
+			"interactiveButtonsHeader": {
+				"type": "Text",
+				"text": "5: Reflect & Apply – Your World is Full of APs!",
+				"media": null
+			},
+			"interactiveButtonsBody": "🧠 Try these yourself:\n📘 Study Plan:\nDay 1 = 2 hrs → +30 mins daily\n→ Day 7?\n• a = 120 mins, d = 30\n→ a₇ = 120 + 6×30 = ✅ 300 mins = 5 hrs\n📘 Sales Plan:\nMonth 1 = 20 sales → +3 each month\n→ Month 6 = ?\n→ a₆ = 20 + 5×3 = ✅ 35 sales\n📝 Your Turn:\nMake your own AP story:\nExample:\n/\"I drank 1.5L water on Day 1 and added 250ml daily.\nHow much on Day 10?/\"\na = 1500 ml, d = 250\n→ a₁₀ = 1500 + 9×250 = ✅ 3,750 ml\nDrop your own AP example — let’s bring numbers to life! 🔥",
+			"interactiveButtonsItems": [
+				{
+					"id": "d0704327",
+					"buttonText": "Finish",
+					"nodeResultId": ""
+				}
+			],
+			"interactiveButtonsUserInputVariable": "",
+			"interactiveButtonsDefaultNodeResultId": ""
+		},
+		{
+			"id": "main_message-0dae0d",
+			"flowNodeType": "Message",
+			"isStartNode": false,
+			"flowNodePosition": {
+				"posX": "3664.4103242717983",
+				"posY": "204.37312581184813"
+			},
+			"flowReplies": [
+				{
+					"flowReplyType": "Text",
+					"data": "<p><strong>Sorry we didnt get the response, can you answer again?</strong></p>",
+					"caption": "",
+					"mimeType": ""
+				}
+			]
+		},
+		{
+			"id": "main_buttons-c58e4b",
+			"flowNodeType": "InteractiveButtons",
+			"isStartNode": false,
+			"flowNodePosition": {
+				"posX": "4062.798443588861",
+				"posY": "-692.6940596585315"
+			},
+			"interactiveButtonsHeader": {
+				"type": "Text",
+				"text": "What next?",
+				"media": null
+			},
+			"interactiveButtonsBody": "<p>Whenever you are ready to explore other <strong>SkillBytes</strong>, you can respond to this chat with the below <strong>keywords</strong></p>\n<p><br></p>\n<p><br></p>\n<p>a) <strong>Maths </strong>- Chapter selection</p>\n<p>b) <strong>AP</strong> - SkillBytes selection for Arithmetic Progression</p>",
+			"interactiveButtonsItems": [
+				{
+					"id": "9e4ec77a",
+					"buttonText": "Done",
+					"nodeResultId": ""
+				}
+			],
+			"interactiveButtonsUserInputVariable": "",
+			"interactiveButtonsDefaultNodeResultId": ""
+		}
+	],
+	"flowEdges": [
+		{
+			"id": "reactflow__edge-main_message-cf9420-main_buttons-a08082",
+			"sourceNodeId": "main_message-cf9420",
+			"targetNodeId": "main_buttons-a08082"
+		},
+		{
+			"id": "reactflow__edge-main_buttons-a08082-main_buttons-9aa2f5",
+			"sourceNodeId": "main_buttons-a08082",
+			"targetNodeId": "main_buttons-9aa2f5"
+		},
+		{
+			"id": "reactflow__edge-main_buttons-9aa2f5-main_message-dc4e50",
+			"sourceNodeId": "main_buttons-9aa2f5",
+			"targetNodeId": "main_message-dc4e50"
+		},
+		{
+			"id": "reactflow__edge-main_message-dc4e50-main_buttons-9aa2f5",
+			"sourceNodeId": "main_message-dc4e50",
+			"targetNodeId": "main_buttons-9aa2f5"
+		},
+		{
+			"id": "reactflow__edge-main_buttons-9aa2f5-main_buttons-02dbd3",
+			"sourceNodeId": "main_buttons-9aa2f5",
+			"targetNodeId": "main_buttons-02dbd3"
+		},
+		{
+			"id": "reactflow__edge-main_buttons-02dbd3-main_message-f2f4fc",
+			"sourceNodeId": "main_buttons-02dbd3",
+			"targetNodeId": "main_message-f2f4fc"
+		},
+		{
+			"id": "reactflow__edge-main_message-f2f4fc-main_buttons-02dbd3",
+			"sourceNodeId": "main_message-f2f4fc",
+			"targetNodeId": "main_buttons-02dbd3"
+		},
+		{
+			"id": "reactflow__edge-main_buttons-02dbd3-main_buttons-3dd37f",
+			"sourceNodeId": "main_buttons-02dbd3",
+			"targetNodeId": "main_buttons-3dd37f"
+		},
+		{
+			"id": "reactflow__edge-main_buttons-3dd37f-main_message-87476d",
+			"sourceNodeId": "main_buttons-3dd37f",
+			"targetNodeId": "main_message-87476d"
+		},
+		{
+			"id": "reactflow__edge-main_message-87476d-main_buttons-3dd37f",
+			"sourceNodeId": "main_message-87476d",
+			"targetNodeId": "main_buttons-3dd37f"
+		},
+		{
+			"id": "reactflow__edge-main_buttons-02dbd3-main_buttons-9cbd7b",
+			"sourceNodeId": "main_buttons-02dbd3",
+			"targetNodeId": "main_buttons-9cbd7b"
+		},
+		{
+			"id": "reactflow__edge-main_buttons-9cbd7b-main_message-b1045b",
+			"sourceNodeId": "main_buttons-9cbd7b",
+			"targetNodeId": "main_message-b1045b"
+		},
+		{
+			"id": "reactflow__edge-main_message-b1045b-main_buttons-9cbd7b",
+			"sourceNodeId": "main_message-b1045b",
+			"targetNodeId": "main_buttons-9cbd7b"
+		},
+		{
+			"id": "reactflow__edge-main_buttons-9cbd7b-main_buttons-1b6935",
+			"sourceNodeId": "main_buttons-9cbd7b",
+			"targetNodeId": "main_buttons-1b6935"
+		},
+		{
+			"id": "reactflow__edge-main_buttons-3dd37f-main_buttons-1b6935",
+			"sourceNodeId": "main_buttons-3dd37f",
+			"targetNodeId": "main_buttons-1b6935"
+		},
+		{
+			"id": "reactflow__edge-main_buttons-1b6935-main_message-7c58ab",
+			"sourceNodeId": "main_buttons-1b6935",
+			"targetNodeId": "main_message-7c58ab"
+		},
+		{
+			"id": "reactflow__edge-main_message-7c58ab-main_buttons-1b6935",
+			"sourceNodeId": "main_message-7c58ab",
+			"targetNodeId": "main_buttons-1b6935"
+		},
+		{
+			"id": "reactflow__edge-main_buttons-1b6935-main_buttons-6fc14b",
+			"sourceNodeId": "main_buttons-1b6935",
+			"targetNodeId": "main_buttons-6fc14b"
+		},
+		{
+			"id": "reactflow__edge-main_buttons-6fc14b-main_message-52a53c",
+			"sourceNodeId": "main_buttons-6fc14b",
+			"targetNodeId": "main_message-52a53c"
+		},
+		{
+			"id": "reactflow__edge-main_message-52a53c-main_buttons-6fc14b",
+			"sourceNodeId": "main_message-52a53c",
+			"targetNodeId": "main_buttons-6fc14b"
+		},
+		{
+			"id": "reactflow__edge-main_buttons-6fc14b-main_buttons-279eca",
+			"sourceNodeId": "main_buttons-6fc14b",
+			"targetNodeId": "main_buttons-279eca"
+		},
+		{
+			"id": "reactflow__edge-main_buttons-279eca-main_message-ad5cf3",
+			"sourceNodeId": "main_buttons-279eca",
+			"targetNodeId": "main_message-ad5cf3"
+		},
+		{
+			"id": "reactflow__edge-main_message-ad5cf3-main_buttons-279eca",
+			"sourceNodeId": "main_message-ad5cf3",
+			"targetNodeId": "main_buttons-279eca"
+		},
+		{
+			"id": "reactflow__edge-main_buttons-6fc14b-main_buttons-42b096",
+			"sourceNodeId": "main_buttons-6fc14b",
+			"targetNodeId": "main_buttons-42b096"
+		},
+		{
+			"id": "reactflow__edge-main_buttons-42b096-main_message-fa9954",
+			"sourceNodeId": "main_buttons-42b096",
+			"targetNodeId": "main_message-fa9954"
+		},
+		{
+			"id": "reactflow__edge-main_message-fa9954-main_buttons-42b096",
+			"sourceNodeId": "main_message-fa9954",
+			"targetNodeId": "main_buttons-42b096"
+		},
+		{
+			"id": "reactflow__edge-main_buttons-42b096-main_buttons-c49c30",
+			"sourceNodeId": "main_buttons-42b096",
+			"targetNodeId": "main_buttons-c49c30"
+		},
+		{
+			"id": "reactflow__edge-main_buttons-279eca-main_buttons-c49c30",
+			"sourceNodeId": "main_buttons-279eca",
+			"targetNodeId": "main_buttons-c49c30"
+		},
+		{
+			"id": "reactflow__edge-main_buttons-c49c30-main_message-0dae0d",
+			"sourceNodeId": "main_buttons-c49c30",
+			"targetNodeId": "main_message-0dae0d"
+		},
+		{
+			"id": "reactflow__edge-main_message-0dae0d-main_buttons-c49c30",
+			"sourceNodeId": "main_message-0dae0d",
+			"targetNodeId": "main_buttons-c49c30"
+		},
+		{
+			"id": "reactflow__edge-main_buttons-c49c30-main_buttons-c58e4b",
+			"sourceNodeId": "main_buttons-c49c30",
+			"targetNodeId": "main_buttons-c58e4b"
+		}
+	],
+	"lastUpdated": "2025-07-30T11:25:34.915Z",
+	"isDeleted": false,
+	"transform": {
+		"posX": "26.21700879129719",
+		"posY": "662.2729609554739",
+		"zoom": "0.7393133700896274"
+	},
+	"isPro": false,
+	"channelTypes": [
+		"WA"
+	]
+}
