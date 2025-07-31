@@ -1,9 +1,11 @@
 export type QuizData = {
-	// question: string;
-	// options: string[];
-	// correctAnswer: string;
-	// explanation: string;
-	// wrongAnswerFeedback: string;
+	question: string;
+	options: object;
+	correctOption: string;
+	correctAnswer: string;
+	wrongAnswers: object;
+	explanation: string;
+	wrongAnswerExplanation: string;
 };
 
 export type ExplanationBlock = {

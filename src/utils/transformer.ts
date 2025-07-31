@@ -32,32 +32,25 @@ const createEdgeNode = (sourceNodeId: string, targetNodeId: string): FlowEdge =>
 	targetNodeId: targetNodeId
 });
 
-const createFlowEdges = (flowNodes: FlowNode[], flowEdges: FlowEdge[]) => {
-	for (let i = 0; i < edgeConnections.length; i++) {
-		const [sourceIndex, targetIndex] = edgeConnections[i];
-		// console.log(sourceIndex, targetIndex, flowNodes);
-		// console.log(flowNodes[sourceIndex - 1], flowNodes[targetIndex - 1]);
-		const sourceNodeId = flowNodes[sourceIndex - 1].id;
-		const targetNodeId = flowNodes[targetIndex - 1].id;
-		flowEdges.push(createEdgeNode(sourceNodeId, targetNodeId));
-	}
-}
 
 // Helper to create a message node
-const createMessageNode = (html: string, isStartNode = false, nodePositions: { posX: string, posY: string }): FlowNode => ({
-	id: generateNodeId("main_message"),
-	flowNodeType: "Message",
-	isStartNode,
-	flowNodePosition: nodePositions,
-	flowReplies: [
-		{
-			flowReplyType: "Text",
-			data: html,
-			caption: "",
-			mimeType: ""
-		}
-	]
-});
+const createMessageNode = (html: string, isStartNode = false, nodePositions: { posX: string, posY: string }): FlowNode => {
+	const messageData: string = html.replace(/\n/g, "<br>");
+	return {
+		id: generateNodeId("main_message"),
+		flowNodeType: "Message",
+		isStartNode,
+		flowNodePosition: nodePositions,
+		flowReplies: [
+			{
+				flowReplyType: "Text",
+				data: `<p>${messageData}</p>`,
+				caption: "",
+				mimeType: ""
+			}
+		]
+	}
+};
 
 // Helper to create an interactive button node
 const createButtonNode = (
@@ -69,6 +62,10 @@ const createButtonNode = (
 	defaultNextId?: string,
 ): FlowNode => {
 	const nodeId = generateNodeId("main_buttons");
+	const buttonTitle: string = title.replace(/\n/g, "<br>");
+	const buttonBody: string = body.replace(/\n/g, "<br>");
+	const buttonFooter: string = footer?.replace(/\n/g, "<br>") ?? "";
+
 	return {
 		id: nodeId,
 		flowNodeType: "InteractiveButtons",
@@ -79,7 +76,7 @@ const createButtonNode = (
 			text: title,
 			media: null
 		},
-		interactiveButtonsBody: body,
+		interactiveButtonsBody: `<p>${buttonBody}</p>`,
 		interactiveButtonsFooter: footer,
 		interactiveButtonsItems: buttons.map((btn) => ({
 			id: uuidv4().slice(0, 8),
@@ -105,7 +102,7 @@ const createStartButtonNodeAtIndex = (index: number) => {
 
 const createEndButtonNodeAtIndex = (index: number) => {
 	const title = "What next?";
-	const body = `<p>Whenever you are ready to explore other <strong>SkillBytes</strong>, you can respond to this chat with the below <strong>keywords</strong></p>\n<p><br></p>\n<p><br></p>\n<p>a) <strong>Maths </strong>- Chapter selection</p>\n<p>b) <strong>AP</strong> - SkillBytes selection for Arithmetic Progression</p>`
+	const body = `<p>Whenever you are ready to explore other <strong>SkillBytes</strong>, you can respond to this chat with the below <strong>keywords</strong><br/><br/><br/>a) <strong>Maths </strong>- Chapter selection</p>\n<p>b) <strong>AP</strong> - SkillBytes selection for Arithmetic Progression</p>`
 	const buttonText = "Done"
 	return createButtonNode(
 		title,
@@ -126,13 +123,14 @@ const createQuizBytesAtStartIndex = (flowEdges: FlowEdge[], index: number, title
 	let nodeIndex = index;
 	// if (steps[2].includes("📘 Q.")) {
 	const quizResult = extractQuizData(text);
-	console.log(quizResult);
+	// console.log(quizResult);
 	if (quizResult) {
 
 		const quizBody = `<p>${quizResult.question}</p>`;//</br><p>${quizResult.options.map((option) => `<p>${option}</p>`).join("\n")}</p>`;
 		const correctAns1Body = `<p>${quizResult.correctAnswer}</p></br><p>${quizResult.explanation}</p>`;
-		const wrongAns1Body = `<p>${quizResult.wrongAnswers}</p></br><p>${quizResult.wrongAnswerExplanation}</p></br><p>Correct Ans is : </p><br/><p>${correctAns1Body}</p>`;
+		const wrongAns1Body = `<p>${quizResult.wrongAnswerExplanation}</p></br><p><strong>Correct Ans is : </strong></p><br/><p>${correctAns1Body}</p>`;
 		const optionKeys = Object.keys(quizResult.options);
+
 		//Node 5 - Quiz Question
 		const quizButton = createButtonNode(
 			title,
@@ -147,7 +145,8 @@ const createQuizBytesAtStartIndex = (flowEdges: FlowEdge[], index: number, title
 			nodePositions[nodeIndex],
 			quizFooterText);
 		nodeIndex++;
-		console.log(quizButton)
+		// console.log(quizButton)
+
 		//Node 6 - Common Message
 		const quizFixedMessage = createFixedMessageNodeAtIndex(nodeIndex);
 		nodeIndex++;
@@ -188,11 +187,11 @@ const createQuizBytesAtStartIndex = (flowEdges: FlowEdge[], index: number, title
 				wrongOptsId: string[] = [];
 
 			quizButton.interactiveButtonsItems.forEach((item) => {
-				if (item.isCorrectAns) {
+				if (item.isCorrectAns)
 					correctOptId = item.id;
-				} else {
+				else
 					wrongOptsId.push(item.id);
-				}
+
 				item.nodeResultId = item.isCorrectAns ? quizCorrectAns.id : quizWrongAns.id;
 			});
 
@@ -200,31 +199,13 @@ const createQuizBytesAtStartIndex = (flowEdges: FlowEdge[], index: number, title
 			flowEdges.push(createEdgeNode(`${quizButton.id}__${wrongOptsId[0]}`, quizWrongAns.id));//8,23
 			flowEdges.push(createEdgeNode(`${quizButton.id}__${wrongOptsId[1]}`, quizWrongAns.id));//9,24
 
-			// quizButton.interactiveButtonsItems[0].nodeResultId =
-			// 	quizButton.interactiveButtonsItems[0]?.isCorrectAns
-			// 		? quizCorrectAns.id
-			// 		: quizWrongAns.id;
-
-			// quizButton.interactiveButtonsItems[1].nodeResultId =
-			// 	quizButton.interactiveButtonsItems[1]?.isCorrectAns
-			// 		? quizCorrectAns.id
-			// 		: quizWrongAns.id;
-
-			// quizButton.interactiveButtonsItems[2].nodeResultId =
-			// 	quizButton.interactiveButtonsItems[2]?.isCorrectAns
-			// 		? quizCorrectAns.id
-			// 		: quizWrongAns.id;
-
 		}
+
 		flowEdges.push(createEdgeNode(`${quizCorrectAns.id}__${quizCorrectAns.id}-default`, quizCorrectAnsFixedMessage.id));//11,25
 		flowEdges.push(createEdgeNode(quizCorrectAnsFixedMessage.id, quizCorrectAns.id));//12,26
 
 		flowEdges.push(createEdgeNode(`${quizWrongAns.id}__${quizWrongAns.id}-default`, quizWrongAnsFixedMessage.id));//13,27
 		flowEdges.push(createEdgeNode(quizWrongAnsFixedMessage.id, quizWrongAns.id));//14,28
-
-
-
-
 
 		return {
 			quizButton,
@@ -239,11 +220,11 @@ const createQuizBytesAtStartIndex = (flowEdges: FlowEdge[], index: number, title
 	// }
 }
 
-const createExplainationBytesAtStartIndex = (flowEdges: FlowEdge[], index: number, buttonTitle: string, text: string): any => {
+const createExplanationBytesAtStartIndex = (flowEdges: FlowEdge[], index: number, buttonTitle: string, text: string): any => {
 	let nodeIndex = index;
 
 	const explanationBlock = extractExplanationBlock(text);
-	const explanation1Button = createButtonNode(
+	const explanationButton = createButtonNode(
 		explanationBlock.explanationTitle,
 		explanationBlock.explanation,
 		[{ text: buttonTitle }],
@@ -251,19 +232,19 @@ const createExplainationBytesAtStartIndex = (flowEdges: FlowEdge[], index: numbe
 	nodeIndex++;
 
 	//Node 12 - Common Message
-	const explanation1FixedMessage = createFixedMessageNodeAtIndex(nodeIndex);
+	const explanationFixedMessage = createFixedMessageNodeAtIndex(nodeIndex);
 	nodeIndex++;
 
-	explanation1Button.interactiveButtonsDefaultNodeResultId = explanation1FixedMessage.id;
+	explanationButton.interactiveButtonsDefaultNodeResultId = explanationFixedMessage.id;
 
-	flowEdges.push(createEdgeNode(`${explanation1Button.id}__${explanation1Button.id}-default`, explanation1FixedMessage.id));//17,31
-	flowEdges.push(createEdgeNode(explanation1FixedMessage.id, explanation1Button.id));//18,32
+	flowEdges.push(createEdgeNode(`${explanationButton.id}__${explanationButton.id}-default`, explanationFixedMessage.id));//17,31
+	flowEdges.push(createEdgeNode(explanationFixedMessage.id, explanationButton.id));//18,32
 
 
 
 	return {
-		explanation1Button,
-		explanation1FixedMessage,
+		explanation1Button: explanationButton,
+		explanation1FixedMessage: explanationFixedMessage,
 		nodeIndex
 	};
 }
@@ -274,14 +255,34 @@ export const transformSourceData = (sourceData: string, outputFileame: string): 
 	const flowNodes: FlowNode[] = [];
 	const flowEdges: FlowEdge[] = [];
 
-	// console.log(sourceData);
-	const steps: string[] = sourceData.split("Step ");
+	const stepRegex = /Step\s+(\d+):\s*(.*?)\n([\s\S]*?)(?=(?:Step\s+\d+:)|$)/g;
+	const steps: string[] = [];
+
+	// Match everything before the first step
+	const firstStepMatch = sourceData.match(/Step\s+1:/);
+
+	const intro = firstStepMatch
+		? sourceData.slice(0, firstStepMatch.index).trim()
+		: '';
+
+	steps.push(intro);
+	let match: RegExpExecArray | null;
+	while ((match = stepRegex.exec(sourceData)) !== null) {
+		// console.log(match);
+		const stepNumber = parseInt(match[1]);
+		const title = match[2];//.trim();
+		const content = match[3];//.trim();
+
+		steps.push(`${title}\n${content}`);
+	}
+
 	console.log(steps);
 	let nodeIndex = 0;
 
+
 	//Node 1 -Start Message
 	const startMessage = createMessageNode(
-		steps[0],
+		`${steps[0]}`,
 		true,
 		nodePositions[nodeIndex]
 	);
@@ -339,7 +340,7 @@ export const transformSourceData = (sourceData: string, outputFileame: string): 
 	// 	explanation1FixedMessage,
 	// 	nodeIndex
 	// };
-	let explanation1Nodes = createExplainationBytesAtStartIndex(flowEdges, nodeIndex, explanation1ButtonTitle, steps[3]);
+	let explanation1Nodes = createExplanationBytesAtStartIndex(flowEdges, nodeIndex, explanation1ButtonTitle, steps[3]);
 	nodeIndex = explanation1Nodes.nodeIndex;
 
 	if (quiz1Nodes.quizCorrectAns?.interactiveButtonsItems && quiz1Nodes.quizCorrectAns.interactiveButtonsItems.length > 0)
@@ -367,7 +368,7 @@ export const transformSourceData = (sourceData: string, outputFileame: string): 
 
 
 	// Explanation (19-20)
-	let explanation2Nodes = createExplainationBytesAtStartIndex(flowEdges, nodeIndex, explanation2ButtonTitle, steps[5]);
+	let explanation2Nodes = createExplanationBytesAtStartIndex(flowEdges, nodeIndex, explanation2ButtonTitle, steps[5]);
 	nodeIndex = explanation2Nodes.nodeIndex;
 
 	if (quiz2Nodes.quizCorrectAns?.interactiveButtonsItems && quiz2Nodes.quizCorrectAns.interactiveButtonsItems.length > 0)
@@ -402,9 +403,7 @@ export const transformSourceData = (sourceData: string, outputFileame: string): 
 	flowNodes.push(explanation2Nodes.explanation1Button, explanation2Nodes.explanation1FixedMessage);
 	flowNodes.push(endButton);
 
-	console.log(flowNodes)
-
-	// createFlowEdges(flowNodes, flowEdges);
+	//console.log(flowNodes)
 
 	return {
 		id: null,

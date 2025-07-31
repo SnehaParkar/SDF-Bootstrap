@@ -1,5 +1,5 @@
 import { QuizData, ExplanationBlock } from "@/types/quiz";
-export function extractQuizData(text: string): any | null {
+export function extractQuizData(text: string): QuizData | null {
 	//const questionMatch = text.match(/📘 \s*(.*?)\n/i);
 	//const optionMatches = [...text.matchAll(/►\s*([A-C])\)\s*([^\n]+)/g)];
 	// const correctMatch = text.match(/✅\s*Correct Answer:\s*([A-C])\)\s*([^\n]+)/i);
@@ -38,7 +38,7 @@ export function extractQuizData(text: string): any | null {
 
 	// Wrong Answer Explanation
 	//const wrongExplanationMatch = text.match(/❌\s*If you chose .*?Why wrong:[\s\S]*?(?=⚠️|$)/);
-	const wrongExplanationMatch = text.match(/❌\s*(.*?)\n\s*(.*)/);
+	const wrongExplanationMatch = text.match(/❌([\s\S]*)/);
 
 	const wrongAnswerExplanation = wrongExplanationMatch
 		? wrongExplanationMatch[0].trim()
