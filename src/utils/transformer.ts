@@ -123,10 +123,13 @@ const createQuizBytesAtStartIndex = (flowEdges: FlowEdge[], index: number, title
 	let nodeIndex = index;
 	// if (steps[2].includes("📘 Q.")) {
 	const quizResult = extractQuizData(text);
-	// console.log(quizResult);
+	console.log(quizResult);
 	if (quizResult) {
+		const optionsList = Object.entries(quizResult.options);
+		console.log(optionsList);
+		const optionsListHTML = optionsList.map((option: any) => `<p><b>${option[0]}</b> : ${option[1]}</p>`).join("\n");
 
-		const quizBody = `<p>${quizResult.question}</p>`;//</br><p>${quizResult.options.map((option) => `<p>${option}</p>`).join("\n")}</p>`;
+		const quizBody = `<p>${quizResult.question}</p></br>Choose : ${optionsListHTML}`;//</br><p>${quizResult.options.map((option) => `<p>${option}</p>`).join("\n")}</p>`;
 		const correctAns1Body = `<p>${quizResult.correctAnswer}</p></br><p>${quizResult.explanation}</p>`;
 		const wrongAns1Body = `<p>${quizResult.wrongAnswerExplanation}</p></br><p><strong>Correct Ans is : </strong></p><br/><p>${correctAns1Body}</p>`;
 		const optionKeys = Object.keys(quizResult.options);
