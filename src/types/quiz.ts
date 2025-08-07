@@ -1,4 +1,4 @@
-export type QuizData = {
+export type QuizType = {
 	question: string;
 	options: object;
 	correctOption: string;
@@ -8,7 +8,4 @@ export type QuizData = {
 	wrongAnswerExplanation: string;
 };
 
-export type ExplanationBlock = {
-	explanationTitle: string;
-	explanation: string;
-};
+

@@ -9,7 +9,7 @@ export default function webpage({ props }: any) {
     <>
       <div className="sb-container">
         <div className="sb-layout-frame">
-          <Header />
+          <div className="sb-header-divider"></div>
           <MainContent />
         </div>
       </div>

@@ -1,17 +1,24 @@
-import { QuizData, ExplanationBlock } from "@/types/quiz";
-export function extractQuizData(text: string): QuizData | null {
-	//const questionMatch = text.match(/📘 \s*(.*?)\n/i);
-	//const optionMatches = [...text.matchAll(/►\s*([A-C])\)\s*([^\n]+)/g)];
-	// const correctMatch = text.match(/✅\s*Correct Answer:\s*([A-C])\)\s*([^\n]+)/i);
-	// const explanationMatch = text.match(/📐.*?:\s*\n([\s\S]*?)(?=\n❌|$)/);
-	// const wrongMatch = text.match(/❌\s*(.*?)\n\s*(.*)/);
+import { QuizType } from "@/types/quiz";
+export function extractQuizData(text: string): QuizType | null {
 
-	const questionMatch = text.match(/📘.*?\n(.*?)(?=Choose:)/s);
+	// Extract question
+	// Regex to match blocks starting with 📘, 📘Q, Q:, etc.
+	//const questionRegex = /(?:📘Q[:\s]?|📘[:\s]?|Q[:\s]?)([\s\S]*?)(?=(?:📘|Q:|$))/g;
+
+	const questionMatch = text.match(/📘.*?\n(.*?)(?=Choose)/s);
 	const question = questionMatch ? questionMatch[0] : " "; //? [1].replace(/\n/g, " ").trim() : "";
 
 
+
+
+
+
 	// Extract options
-	const optionRegex = /►\s*([A-Z])\)\s*(.*)/g;
+	// const optionRegex = /►\s*([A-Z])\)\s*(.*)/g; //eg: ► A) 9 m
+
+	// const optionRegex = /([A-Z])\)\s*([^\n]+)/g; // A) 9 m
+
+	const optionRegex = /^►?\s?[A-Za-z]\)/ //eg: ► A) 9 m or A) 9 m
 	const options: Record<string, string> = {};
 	let optionMatch;
 	while ((optionMatch = optionRegex.exec(text)) !== null) {
@@ -37,25 +44,11 @@ export function extractQuizData(text: string): QuizData | null {
 		: "";
 
 	// Wrong Answer Explanation
-	//const wrongExplanationMatch = text.match(/❌\s*If you chose .*?Why wrong:[\s\S]*?(?=⚠️|$)/);
 	const wrongExplanationMatch = text.match(/❌([\s\S]*)/);
 
 	const wrongAnswerExplanation = wrongExplanationMatch
 		? wrongExplanationMatch[0].trim()
 		: "";
-
-	// if (!questionMatch || !correctMatch || options.length === 0) {
-	// 	return null;
-	// }
-
-	//const question = questionMatch[1];//.trim();
-
-	//const options = optionMatches.map((match) => `${match[1]}) ${match[2].trim()}`);
-	//const correctAnswer = `${correctMatch[1]}) ${correctMatch[2].trim()}`;
-	// const explanation = explanationMatch ? explanationMatch[1].trim() : "";
-	// const wrongAnswerFeedback = wrongMatch
-	// ?`${wrongMatch[1]/*.trim()*/} ${wrongMatch[2]/*.trim()*/}`
-	// : "";
 
 	return {
 		question,
