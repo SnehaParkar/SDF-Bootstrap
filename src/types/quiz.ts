@@ -3,7 +3,6 @@ export type QuizType = {
 	options: object;
 	correctOption: string;
 	correctAnswer: string;
-	wrongAnswers: object;
 	explanation: string;
 	wrongAnswerExplanation: string;
 };

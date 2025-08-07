@@ -20,7 +20,15 @@ export default function Formatter() {
 		setOutputFilename("Test");
 	};
 
+	/**
+	 * Transforms the current source data into a flow template.
+	 * Logs the source data to the console.
+	 * Uses the transformSourceData utility to generate a FlowTemplate object.
+	 * Updates the jsonOutput state with the transformed data.
+	 * Updates the nodes state with the flow nodes from the transformed data.
+	 */
 	const handleTransform = () => {
+		console.log(sourceData);
 		const transformed = transformSourceData(sourceData, outputFileame);
 		setJsonOutput(transformed);
 		setNodes(transformed.flowNodes);
@@ -72,15 +80,24 @@ export default function Formatter() {
 					<div className="sb-validation-title">Validate Transformed Data</div>
 					<div className="sb-validation-container">
 						{nodes.map((node, index) => (
-							<div className="sb-editable-node-card" key={index}>
-								<div className="sb-editable-node-card-title">Node : {index + 1} - {node.flowNodeType}</div>
-								{node.flowNodeType === "InteractiveButtons" ?
-									(<EditableButtonNode index={node.id} initialNode={node} updateNode={handleUpdateNode} />
 
-									) : (
-										<EditableMessageNode index={node.id} initialNode={node} updateNode={handleUpdateNode} />
-									)}
-							</div>
+							<>{node.flowNodeType === "InteractiveButtons" ?
+								(
+									<div className="sb-editable-node-card" key={index}>
+										<div className="sb-editable-node-card-title">Node : {index + 1} - {node.flowNodeType}</div>
+										<EditableButtonNode index={node.id} initialNode={node} updateNode={handleUpdateNode} />
+									</div>
+
+								) :
+								(
+
+									<div className="sb-editable-node-card" key={index}>
+										{/* <div className="sb-editable-node-card-title">Node : {index + 1} - {node.flowNodeType}</div>
+										<EditableMessageNode index={node.id} initialNode={node} updateNode={handleUpdateNode} /> */}
+									</div>
+								)
+							}
+							</>
 						))}
 					</div>
 					<div className="sb-output-data-container">

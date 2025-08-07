@@ -1,63 +1,77 @@
 import { QuizType } from "@/types/quiz";
-export function extractQuizData(text: string): QuizType | null {
+import { start } from "repl";
+export function extractQuizData(input: string): QuizType | null {
+	const lines = input.split(/\r?\n/);
+	let questionLines: string[] = [];
+	let optionLines: string[] = [];
+	let correctAnswer = '';
+	let correctOption = '';
+	let correctExplanationLines: string[] = [];
+	let wrongExplanationLines: string[] = [];
 
-	// Extract question
-	// Regex to match blocks starting with 📘, 📘Q, Q:, etc.
-	//const questionRegex = /(?:📘Q[:\s]?|📘[:\s]?|Q[:\s]?)([\s\S]*?)(?=(?:📘|Q:|$))/g;
+	let isInQuestion = false;
+	let isInCorrectExplanation = false;
+	let isInWrongExplanation = false;
+	let isAfterOptions = false;
 
-	const questionMatch = text.match(/📘.*?\n(.*?)(?=Choose)/s);
-	const question = questionMatch ? questionMatch[0] : " "; //? [1].replace(/\n/g, " ").trim() : "";
+	const questionRegex = /^(?:📘Q:|📘Q :|📘Q|📘|Q:|Q)/;
+	const optionRegex = /^([A-Z]\)|►\s* ([A-Z])\)|►([A-Z])\))/
+	const startOptionRegex = /^(A\)|► A\)|►A\)|(Choose[: ]))/;
+	const correctAnswerRegex = /^(✅)|(✅ Correct Answer[: ]*([A-Z]))|(Correct Answer[: ]*([A-Z]))/;
 
+	for (let i = 0; i < lines.length; i++) {
+		const line = lines[i].trim();
 
+		// Start of question
+		if (questionRegex.test(line)) {
+			isInQuestion = true;
+		}
 
+		// Detect start of optionLines
+		if (startOptionRegex.test(line)) {
+			isInQuestion = false;
+			isAfterOptions = true;
+		}
 
+		if (isInQuestion) {
+			questionLines.push(line.replace(questionRegex, '').trim());
+		} else if (optionRegex.test(line)) {
+			optionLines.push(line);
+		} else if (correctAnswerRegex.test(line)) {
+			const match = line.match(/Correct Answer[: ]*([A-Z])/);
+			if (match) {
+				correctAnswer = match[1];
+				correctOption = match[0].trim();
+			}
+			isInCorrectExplanation = true;
+		} else if (/^[❌⚠️]/.test(line)) {
+			isInCorrectExplanation = false;
+			isInWrongExplanation = true;
+		}
 
-
-	// Extract options
-	// const optionRegex = /►\s*([A-Z])\)\s*(.*)/g; //eg: ► A) 9 m
-
-	// const optionRegex = /([A-Z])\)\s*([^\n]+)/g; // A) 9 m
-
-	const optionRegex = /^►?\s?[A-Za-z]\)/ //eg: ► A) 9 m or A) 9 m
-	const options: Record<string, string> = {};
-	let optionMatch;
-	while ((optionMatch = optionRegex.exec(text)) !== null) {
-		options[optionMatch[1]] = optionMatch[2].trim();
+		if (isInCorrectExplanation && !/^✅/.test(line)) {
+			correctExplanationLines.push(line);
+		}
+		if (isInWrongExplanation) {
+			wrongExplanationLines.push(line);
+		}
 	}
 
-	// Correct Answer
-	const correctMatch = text.match(/✅\s*Correct Answer:\s*([A-Z])\)?\s*(.*)?/);
-	const correctOption = correctMatch?.[1] ?? "";
-	const correctAnswer = correctMatch?.[0]?.trim() || options[correctOption] || "";
-
-	// Wrong Answers
-	const wrongAnswers: Record<string, string> = {};
-	Object.entries(options).forEach(([key, val]) => {
-		if (key !== correctOption) wrongAnswers[key] = val;
-	});
-
-
-	// Correct Explanation (up to ❌)
-	const explanationMatch = text.match(/✅\s*Correct Answer:[\s\S]*?(?=❌|⚠️|$)/);
-	const explanation = explanationMatch
-		? explanationMatch[0].replace(/✅\s*Correct Answer:\s*[A-Z]?\)?/, "").trim()
-		: "";
-
-	// Wrong Answer Explanation
-	const wrongExplanationMatch = text.match(/❌([\s\S]*)/);
-
-	const wrongAnswerExplanation = wrongExplanationMatch
-		? wrongExplanationMatch[0].trim()
-		: "";
+	const options: Record<string, string> = {};
+	optionLines.forEach((option) => {
+		const match = option.match(/^(?:►\s*)?([A-D])\)\s*(.*)/);
+		if (match) {
+			options[match[1]] = match[2].trim();
+		}
+	})
 
 	return {
-		question,
+		question: questionLines.join(' ').trim(),
 		options,
 		correctOption,
 		correctAnswer,
-		wrongAnswers,
-		explanation,
-		wrongAnswerExplanation,
+		explanation: correctExplanationLines.join(' ').trim(),
+		wrongAnswerExplanation: wrongExplanationLines.join(' ').trim(),
 	};
 }
 

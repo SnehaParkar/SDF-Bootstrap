@@ -24,7 +24,6 @@ const extractSteps = (sourceData: string): string[] => {
 
 	let match: RegExpExecArray | null;
 	while ((match = stepRegex.exec(sourceData)) !== null) {
-		console.log(match);
 		const stepNumber = parseInt(match[1]);
 		const title = match[2];//.trim();
 		const content = match[3];//.trim();
@@ -40,7 +39,7 @@ export const transformSourceData = (sourceData: string, outputFileame: string): 
 	const flowEdges: FlowEdge[] = [];
 	const steps = extractSteps(sourceData);
 
-	console.log(steps);
+	// console.log(steps);
 	let nodeIndex = 0;
 
 	//Node 1 -Start Message

@@ -228,7 +228,7 @@ body {
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
-  gap: 15px;
+  gap: 10px;
 }
 
 .sb-input-data-title {
@@ -465,9 +465,20 @@ body {
 
   border-radius: 5px;
   height: 100%;
-  min-height: 200px;
+  min-height: 120px;
   width: 100%;
   line-height: 1.5;
+}
+
+.sb-tiptap-editor .control-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 5px;
+  background-color: #f4f7fbe6;
+  border-bottom: 1px solid var(--border-color-primary);
 }
 
 .sb-tiptap-editor .control-group .button-group {
@@ -475,8 +486,8 @@ body {
   flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
-  padding: 2px;
-  background-color: #98c8f8e6;
+  border-radius: 5px;
+  border: 1px solid var(--border-color-secondary);
 }
 
 .sb-tiptap-editor .button-group button {
@@ -484,12 +495,24 @@ body {
   flex-direction: row;
   align-items: center;
   gap: 10px;
-  padding: 12px 10px;
-  border: 1px solid var(--border-color-primary);
-  cursor: pointer;
+  padding: 5px 10px;
   color: var(--text-color-primary);
   background-color: #ffffff;
+  border-color: var(--border-color-secondary);
+  border-style: solid;
+  border-width: 0 1px 0 0;
+  cursor: pointer;
 }
+
+.sb-tiptap-editor .button-group button:first-child {
+  border-radius: 5px 0 0 5px;
+}
+
+.sb-tiptap-editor .button-group button:last-child {
+  border-width: 0;
+  border-radius: 0 5px 5px 0;
+}
+
 
 .sb-tiptap-editor .button-group button:hover {
   /* background-color: var(--button-background); */

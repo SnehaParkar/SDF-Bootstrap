@@ -10,14 +10,14 @@ export const createQuizNodesAtStartIndex = (flowEdges: FlowEdge[], index: number
 	let nodeIndex = index;
 	// if (steps[2].includes("📘 Q.")) {
 	const quizResult = extractQuizData(text);
-	// console.log(quizResult);
+
 	if (quizResult) {
 		const optionsList = Object.entries(quizResult.options);
 		const optionsListHTML = optionsList.map((option: any) => `<p><b>${option[0]}</b> : ${option[1]}</p>`).join("");
 
 		const quizBody = `<p>${quizResult.question}</p></br>Choose : ${optionsListHTML}`;
-		const correctAns1Body = `<p>${quizResult.correctAnswer}</p></br><p>${quizResult.explanation}</p>`;
-		const wrongAns1Body = `<p>${quizResult.wrongAnswerExplanation}</p></br><p><b>Correct Ans  </b></p><br/><p>${correctAns1Body}</p>`;
+		const correctAns1Body = `<p>${quizResult.correctOption}</p></br><p>${quizResult.explanation}</p>`;
+		const wrongAns1Body = `<p>${quizResult.wrongAnswerExplanation}</p></br><p><b>Correct Answer </b></p><br/><p>${correctAns1Body}</p>`;
 		const optionKeys = Object.keys(quizResult.options);
 
 		//Node 5 - Quiz Question
@@ -25,7 +25,7 @@ export const createQuizNodesAtStartIndex = (flowEdges: FlowEdge[], index: number
 			title,
 			quizBody,
 			optionKeys.map((option: string) => {
-				const isCorrect = option === quizResult.correctOption;
+				const isCorrect = option === quizResult.correctAnswer;
 				return {
 					text: option,
 					isCorrectAns: isCorrect

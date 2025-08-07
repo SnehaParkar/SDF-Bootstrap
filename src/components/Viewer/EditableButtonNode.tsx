@@ -41,7 +41,7 @@ export default function EditableButtonNode({ initialNode, index, updateNode }: P
 			<div className="sb-editable-node-content">
 				<div className="sb-editable-node-form">
 					<h2 className="header">Edit Content</h2>
-					<div className="sb-input-wrapper mb-4">
+					<div className="sb-input-wrapper ">
 						<label className="sb-input-data-title">Title</label>
 						<input
 							type="text"
@@ -83,11 +83,9 @@ export default function EditableButtonNode({ initialNode, index, updateNode }: P
 				<div className="sb-editable-node-json">
 					<h2 className="header">Node JSON</h2>
 
-
 					<pre className="overflow-auto max-h-96 rounded-md">
 						{JSON.stringify(node, null, 2)}
 					</pre>
-
 
 				</div>
 			)}
