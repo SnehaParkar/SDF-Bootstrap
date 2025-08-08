@@ -170,8 +170,8 @@ export default function TipTapEditor({ value, onChange }: Props) {
 		// Example: Log JSON output when editor content changes
 		const update = () => {
 			onChange(editor.getHTML());
-			console.log('HTML:', editor.getHTML());
-			console.log('JSON:', editor.getJSON());
+			//console.log('HTML:', editor.getHTML());
+			//console.log('JSON:', editor.getJSON());
 		};
 		editor.on('update', update);
 		return () => { editor.off('update', update); }

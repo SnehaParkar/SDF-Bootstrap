@@ -28,7 +28,6 @@ export default function Formatter() {
 	 * Updates the nodes state with the flow nodes from the transformed data.
 	 */
 	const handleTransform = () => {
-		console.log(sourceData);
 		const transformed = transformSourceData(sourceData, outputFileame);
 		setJsonOutput(transformed);
 		setNodes(transformed.flowNodes);
