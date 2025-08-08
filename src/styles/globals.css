@@ -418,6 +418,10 @@ body {
   border-radius: 5px;
 }
 
+.sb-editable-node-preview-card p {
+  min-height: 25px;
+}
+
 .sb-editable-message .sb-editable-node-preview-card {
   border: 1px solid var(--sb-editable-message-node-color);
   background-color: var(--sb-editable-message-node-bgcolor);
