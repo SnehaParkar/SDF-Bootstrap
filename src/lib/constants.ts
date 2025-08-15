@@ -1,6 +1,21 @@
-import { title } from "process";
+
 
 export const tenantId = "441194";
+export const startNodePositions = {
+	"posX": "195",
+	"posY": "-700"
+};
+
+export const positionConstants = {
+	"startX": 195,
+	"gapX": 500,
+	"startY": -700,
+	"gapY": 700,
+	"topY": -1200,
+	"bottomY": 0,
+
+};
+
 export const transformData = {
 	"posX": "26.21700879129719",
 	"posY": "662.2729609554739",
@@ -35,3 +50,5 @@ export const endButtonData = {
 }
 
 export const commonTextMessage = `<p><b>Sorry we didnt get the response, can you answer again?</b></p>`;
+
+export const ieltsReadingWelcomeMessage = `<p><b>SkillByte on – 🏆  Read and Select. Test your vocabulary</b></p></br><p>💡  Pick the right word from the set of words in each question to test your vocabulary</p>`

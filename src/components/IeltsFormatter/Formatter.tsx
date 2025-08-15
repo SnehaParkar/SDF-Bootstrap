@@ -1,10 +1,10 @@
 // components/Formatter/Formatter.tsx
 import { useState } from "react";
-import { transformSourceData } from "@/utils/transformer";
+import { transformSourceData } from "@/utils/IELTSTransformer";
 import { FlowTemplate, FlowNode } from "@/types/flowTypes";
-import SourceInput from "./SourceInput";
-import OutputControls from "./OutputControls";
-import JsonOutput from "./JsonOutput";
+import SourceInput from "../Controls/SourceInput";
+import OutputControls from "../Controls/OutputControls";
+import JsonOutput from "../Controls/JsonOutput";
 import EditableButtonNode from "../Viewer/EditableButtonNode";
 import EditableMessageNode from "../Viewer/EditableMessageNode";
 
@@ -91,8 +91,8 @@ export default function Formatter() {
 								(
 
 									<div className="sb-editable-node-card" key={index}>
-										{/* <div className="sb-editable-node-card-title">Node : {index + 1} - {node.flowNodeType}</div>
-										<EditableMessageNode index={node.id} initialNode={node} updateNode={handleUpdateNode} /> */}
+										<div className="sb-editable-node-card-title">Node : {index + 1} - {node.flowNodeType}</div>
+										<EditableMessageNode index={node.id} initialNode={node} updateNode={handleUpdateNode} />
 									</div>
 								)
 							}

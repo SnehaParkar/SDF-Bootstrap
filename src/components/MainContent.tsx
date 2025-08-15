@@ -1,8 +1,8 @@
 
 import { useState } from "react";
 import Header from "./Header";
-import Formatter from "./Formatter/Formatter";
-
+import Formatter from "./MathFormatter/Formatter";
+import MenuBar from "./MenuBar";
 
 
 export default function MainContent() {
@@ -41,8 +41,7 @@ export default function MainContent() {
 				</div>)}
 			{isAuthorized && (
 				<>
-					<Header />
-					<Formatter />
+
 
 				</>)}
 		</div>

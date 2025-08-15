@@ -1,8 +1,8 @@
-export default function Header() {
+export default function Header({ title }: { title: string }) {
 	return (
 		<header className="sb-header-container">
 			<div className="sb-header">
-				<span className="sb-header-text">SkillBytes Formatter</span>
+				<span className="sb-header-text">{title}</span>
 			</div>
 			{/* <div className="sb-header-menu-container">
 				<div className="sb-header-menu">

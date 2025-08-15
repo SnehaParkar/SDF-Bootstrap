@@ -52,14 +52,8 @@ export default function EditableButtonNode({ initialNode, index, updateNode }: P
 					</div>
 					<div className="sb-input-wrapper">
 						<label className="sb-input-data-title">Body (HTML)</label>
-						<TipTapEditor value={node.interactiveButtonsBody ?? ""} onChange={(value) => handleChange("body", value)} />
-						{/* <textarea
-							className="sb-source-input-textarea"
-							rows={4}
-							value={node.interactiveButtonsBody}
-							//	onKeyUp={(e) => handleChange("body", e.target.value)}
-							onChange={(e) => handleChange("body", e.target.value)}
-						/> */}
+						<TipTapEditor value={node.interactiveButtonsBody ?? ""}
+							onChange={(value) => handleChange("body", value)} />
 					</div>
 				</div>
 
@@ -72,6 +66,11 @@ export default function EditableButtonNode({ initialNode, index, updateNode }: P
 							<div
 								dangerouslySetInnerHTML={{ __html: node.interactiveButtonsBody ?? "" }}
 							/>
+						</div>
+						<div className="button-items">
+							{node.interactiveButtonsItems?.map((item, index) => (
+								<div className="button-item">{item.buttonText}</div>
+							))}
 						</div>
 					</div>
 				</div>

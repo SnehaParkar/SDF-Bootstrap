@@ -7,4 +7,10 @@ export type QuizType = {
 	wrongAnswerExplanation: string;
 };
 
+export type IELTSQuizType = {
+	question: string;
+	options: Record<string, string>;
+	correctOption: string;
+}
+
 

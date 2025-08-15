@@ -21,10 +21,10 @@
   --text-color-tertiary: #b7b7b7;
   --text-color-icon: #cdcdcd;
   --sb-editable-message-node-color: rgb(233, 61, 42);
-  --sb-editable-message-node-bgcolor: rgba(233, 61, 42, 0.05);
+  --sb-editable-message-node-bgcolor: rgba(255, 255, 255, 1);
   --sb-editable-message-node-title-bgcolor: rgba(233, 61, 42, 0.75);
   --sb-editable-button-node-color: rgb(246, 155, 8);
-  --sb-editable-button-node-bgcolor: rgba(246, 155, 8, 0.05);
+  --sb-editable-button-node-bgcolor: rgba(255, 255, 255, 1);
   --sb-editable-button-node-title-bgcolor: rgba(246, 155, 8, 0.85);
   --text-family-primary: Poppins;
   --text-family-header: RobotoSlab;
@@ -172,6 +172,35 @@ body {
 .sb-header-menu:hover .sb-header-menu-title {
   color: var(--text-theme-color-primary);
   font-weight: var(--text-weight-semibold);
+  transition: all 0.4s ease-in-out;
+}
+
+.sb-side-menu-container {
+  gap: var(--header-menu-gap);
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.sb-side-menu-item {
+  padding: var(--header-menu-padding);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  text-decoration: none;
+  font-size: var(--text-size-medium);
+  font-family: var(--text-family-primary);
+  font-weight: var(--text-weight-medium);
+  transition: all 0.4s ease-in-out;
+}
+
+.sb-side-menu-item.active,
+.sb-side-menu-item:hover {
+  color: var(--text-theme-color-primary);
+  border-color: var(--text-theme-color-primary);
   transition: all 0.4s ease-in-out;
 }
 
@@ -425,11 +454,13 @@ body {
 .sb-editable-message .sb-editable-node-preview-card {
   border: 1px solid var(--sb-editable-message-node-color);
   background-color: var(--sb-editable-message-node-bgcolor);
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
 }
 
 .sb-editable-button .sb-editable-node-preview-card {
   border: 1px solid var(--sb-editable-button-node-color);
   background-color: var(--sb-editable-button-node-bgcolor);
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
 }
 
 .sb-editable-node-preview-card .title {
@@ -461,6 +492,28 @@ body {
   font-weight: var(--text-weight-medium);
   letter-spacing: 0.5px;
 }
+
+.sb-editable-node-preview-card .button-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 10px;
+}
+
+.sb-editable-node-preview-card .button-item {
+  padding: 10px 20px;
+  border: 1px solid #eee;
+  background-color: #fafafa;
+  text-align: center;
+  line-height: 1.8;
+  font-size: var(--text-size-small);
+  font-weight: var(--text-weight-medium);
+  letter-spacing: 0.5px;
+  border-radius: 5px;
+
+}
+
+.sb-editable-node-preview-card .button-item:last-child {}
 
 /**/
 .sb-tiptap-editor {

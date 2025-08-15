@@ -1,6 +1,7 @@
 import { startButtonData, endButtonData, commonTextMessage } from "@/lib/constants";
 import { nodePositions } from "@/lib/nodePositions";
 import { createMessageNode, createButtonNode } from "@/lib/FlowNode/node";
+import { FlowNodePosition } from "@/types/flowTypes";
 /**
  * Creates a "Start" button node at the given index.
  * @param index the index to place the node at
@@ -14,11 +15,20 @@ export const createStartButtonNodeAtIndex = (index: number) => {
 		nodePositions[index])
 }
 
+export const createStartButtonNodeAtPosition = (nodePositions: FlowNodePosition) => {
+	return createButtonNode(
+		startButtonData.title,
+		startButtonData.body,
+		[{ text: startButtonData.buttonText }],
+		nodePositions)
+}
+
 /**
  * Creates an "End" button node at the specified index.
  * @param index - The index at which to place the node.
  * @returns The created node.
  */
+
 export const createEndButtonNodeAtIndex = (index: number) => {
 	return createButtonNode(
 		endButtonData.title,
@@ -27,6 +37,21 @@ export const createEndButtonNodeAtIndex = (index: number) => {
 		nodePositions[index]
 	);
 }
+export const createEndButtonNodeAtPosition = (title: string, body: string, buttons: string[], nodePositions: FlowNodePosition) => {
+	return createButtonNode(
+		title,
+		body,
+		buttons.map((button: string) => {
+			return {
+				text: button,
+			};
+		}),
+		nodePositions
+	);
+}
+
+
+// FIXED MESSAGE NODE
 
 export const createFixedMessageNodeAtIndex = (index: number) => {
 	const commonText = commonTextMessage;
@@ -34,4 +59,13 @@ export const createFixedMessageNodeAtIndex = (index: number) => {
 		commonText,
 		false,
 		nodePositions[index]);
+}
+
+
+export const createFixedMessageNodeAtPosition = (nodePositions: FlowNodePosition) => {
+	const commonText = commonTextMessage;
+	return createMessageNode(
+		commonText,
+		false,
+		nodePositions);
 }

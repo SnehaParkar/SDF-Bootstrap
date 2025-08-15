@@ -1,20 +1,15 @@
 import React from 'react'
-import Head from 'next/head'
-import Header from '@/components/Header';
-import MainContent from '@/components/MainContent';
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 // import { useTranslations } from 'next-intl'
 export default function webpage({ props }: any) {
-  return (
-    <>
-      <div className="sb-container">
-        <div className="sb-layout-frame">
-          <div className="sb-header-divider"></div>
-          <MainContent />
-        </div>
-      </div>
-    </>
-  )
+  const router = useRouter();
+  useEffect(() => {
+    router.replace("/ielts");
+  }, [router]);
+
+  return null;
 }
 
 

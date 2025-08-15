@@ -5,10 +5,15 @@ export type FlowReply = {
 	mimeType: string;
 };
 
+export type FlowNodePosition = {
+	posX: string;
+	posY: string;
+};
+
 export type FlowNode = {
 	id: string;
 	flowNodeType: string;
-	flowNodePosition: { posX: string; posY: string };
+	flowNodePosition: FlowNodePosition;
 	isStartNode: boolean;
 	flowReplies?: FlowReply[];
 	interactiveButtonsHeader?: {
