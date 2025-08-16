@@ -177,10 +177,12 @@ body {
 
 .sb-side-menu-container {
   gap: var(--header-menu-gap);
+  max-width: var(--main-content-section-max-width);
   display: flex;
   flex-grow: 1;
   align-items: center;
   justify-content: flex-end;
+  margin: 20px auto;
 }
 
 .sb-side-menu-item {
@@ -224,13 +226,13 @@ body {
 .sb-input-data-container,
 .sb-output-data-container {
   height: 100%;
-  min-height: 200px;
+  min-height: 110px;
   width: 100%;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
-  gap: 35px;
+  gap: 25px;
   border: 1px solid var(--border-color-secondary);
   padding: 30px;
   font-family: var(--text-family-primary);
@@ -264,7 +266,7 @@ body {
   display: flex;
   flex-grow: 1;
   font-weight: var(--text-weight-medium);
-  color: var(--text-color-primary)
+  color: var(--text-color-secondary)
 }
 
 .sb-input-text-field {
@@ -285,6 +287,32 @@ body {
   min-height: 200px;
   width: 100%;
   line-height: 1.5;
+}
+
+.sb-select-source-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 15px 0 0;
+}
+
+.sb-select-source-button {
+  height: var(--button-height);
+  padding: var(--button-padding);
+  border-radius: 25px;
+  cursor: pointer;
+  border: 1px solid var(--border-color-primary);
+  background-color: "#fff";
+  color: var(--text-color-secondary);
+  transform: all 0.4s ease-in-out;
+}
+
+.sb-select-source-button.active {
+  border: 2px solid var(--text-theme-color-primary);
+  background-color: #e0f0ff;
+  color: var(--text-theme-color-primary);
+  transform: all 0.4s ease-in-out;
 }
 
 .sb-button {

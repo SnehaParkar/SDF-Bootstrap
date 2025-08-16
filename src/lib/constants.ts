@@ -51,4 +51,12 @@ export const endButtonData = {
 
 export const commonTextMessage = `<p><b>Sorry we didnt get the response, can you answer again?</b></p>`;
 
-export const ieltsReadingWelcomeMessage = `<p><b>SkillByte on – 🏆  Read and Select. Test your vocabulary</b></p></br><p>💡  Pick the right word from the set of words in each question to test your vocabulary</p>`
+export const ieltsRead_readSelect_wm = `<p><strong>SkillByte on – 🏆  Read and Select. Test your vocabulary</strong></p>\n<p>💡 Pick the right word from the set of words in each question to test your vocabulary</p>`
+export const ieltsRead_fillInBlanks_wm = `<p><strong>SkillByte on – 🏆  Fill in the Blanks. Test your understading</strong></p>\n<p>💡 Pick the right word or words from the set of options in each question to complete the sentence</p>`
+export const ieltsRead_readComplete_wm = `<p><strong>SkillByte on – 🏆  Read the passage and answer the questions.</strong></p>\n<p>💡 Pick the right answer from the set of options in each question that best answers the question</p>`
+export const ieltsSourceType = [
+	"Read & Select",
+	"Fill in the Blanks",
+	// "Read & Complete",
+	// "Interactive Reading",
+]

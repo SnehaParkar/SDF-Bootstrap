@@ -11,6 +11,7 @@ export type IELTSQuizType = {
 	question: string;
 	options: Record<string, string>;
 	correctOption: string;
+	correctAnswerText: string;
 }
 
 

@@ -2,17 +2,21 @@
 import { useState } from "react";
 import { transformSourceData } from "@/utils/IELTSTransformer";
 import { FlowTemplate, FlowNode } from "@/types/flowTypes";
+import SelectSource from "../Controls/SelectSource";
 import SourceInput from "../Controls/SourceInput";
 import OutputControls from "../Controls/OutputControls";
 import JsonOutput from "../Controls/JsonOutput";
 import EditableButtonNode from "../Viewer/EditableButtonNode";
 import EditableMessageNode from "../Viewer/EditableMessageNode";
+import { ieltsSourceType } from "@/lib/constants";
 
 export default function Formatter() {
 	const [sourceData, setSourceData] = useState<string>("");
 	const [outputFileame, setOutputFilename] = useState<string>("test");
 	const [jsonOutput, setJsonOutput] = useState<FlowTemplate | null>(null);
 	const [nodes, setNodes] = useState<FlowNode[]>([]);
+	const [selectedSourceType, setSelectedSourceType] = useState<number>(0);
+
 
 	const handleClearSourceData = () => {
 		setSourceData("");
@@ -28,7 +32,8 @@ export default function Formatter() {
 	 * Updates the nodes state with the flow nodes from the transformed data.
 	 */
 	const handleTransform = () => {
-		const transformed = transformSourceData(sourceData, outputFileame);
+		const transformed = transformSourceData(sourceData, outputFileame, ieltsSourceType[selectedSourceType]);
+		console.log(transformed);
 		setJsonOutput(transformed);
 		setNodes(transformed.flowNodes);
 	};
@@ -49,6 +54,7 @@ export default function Formatter() {
 	const handleCopy = () => {
 		navigator.clipboard.writeText(JSON.stringify(jsonOutput, null, 2));
 	};
+
 	const handleUpdateNode = (updatedNode: FlowNode) => {
 		setNodes((prev) =>
 			prev.map((node) =>
@@ -63,6 +69,11 @@ export default function Formatter() {
 
 	return (
 		<div className="sb-main-content-section">
+			<SelectSource
+				sourceData={ieltsSourceType}
+				selectedSourceType={selectedSourceType}
+				onChangeSourceType={setSelectedSourceType}
+			/>
 			<SourceInput
 				sourceData={sourceData}
 				outputFileame={outputFileame}
@@ -73,6 +84,7 @@ export default function Formatter() {
 			<button className="sb-button sb-transform-button" onClick={handleTransform}>
 				Transform Data
 			</button>
+
 			{jsonOutput && (
 				<>
 
@@ -91,8 +103,8 @@ export default function Formatter() {
 								(
 
 									<div className="sb-editable-node-card" key={index}>
-										<div className="sb-editable-node-card-title">Node : {index + 1} - {node.flowNodeType}</div>
-										<EditableMessageNode index={node.id} initialNode={node} updateNode={handleUpdateNode} />
+										{/* <div className="sb-editable-node-card-title">Node : {index + 1} - {node.flowNodeType}</div>
+										<EditableMessageNode index={node.id} initialNode={node} updateNode={handleUpdateNode} /> */}
 									</div>
 								)
 							}

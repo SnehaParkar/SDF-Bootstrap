@@ -5,8 +5,8 @@ import { FlowNode } from "@/types/flowTypes";
 const generateNodeId = (prefix: string) => `${prefix}-${uuidv4().slice(0, 6)}`;
 
 
-export const createMessageNode = (html: string, isStartNode = false, nodePositions: { posX: string, posY: string }): FlowNode => {
-	const messageData: string = html.replace(/\n/g, "<br>");
+export const createMessageNode = (message: string, isStartNode = false, nodePositions: { posX: string, posY: string }): FlowNode => {
+	//const messageData: string = message.replace(/\n/g, "<br>");
 	return {
 		id: generateNodeId("main_message"),
 		flowNodeType: "Message",
@@ -15,7 +15,7 @@ export const createMessageNode = (html: string, isStartNode = false, nodePositio
 		flowReplies: [
 			{
 				flowReplyType: "Text",
-				data: `<p>${messageData}</p>`,
+				data: `<p>${message}</p>`,
 				caption: "",
 				mimeType: ""
 			}
@@ -47,7 +47,7 @@ export const createButtonNode = (
 			text: title,
 			media: null
 		},
-		interactiveButtonsBody: `<p>${buttonBody}</p>`,
+		interactiveButtonsBody: `<p>${body}</p>`,
 		interactiveButtonsFooter: footer,
 		interactiveButtonsItems: buttons.map((btn) => ({
 			id: uuidv4().slice(0, 8),

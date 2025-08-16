@@ -1,53 +1,25 @@
 
 import { FlowEdge, FlowNodePosition, FlowNode } from "@/types/flowTypes";
-//import { nodePositions } from "@/lib/nodePositions";
 import { createButtonNode } from "@/lib/FlowNode/node";
 import { createEdgeNode } from "../FlowEdge/edge";
 import { createFixedMessageNodeAtPosition } from "@/lib/FlowNode/createDataNodes";
 import { IELTSQuizType } from "@/types/quiz";
-import { positionConstants } from "../constants";
-
+import { calculateNodePositions } from "@/lib/FlowNode/createNodePositions";
 const ieltsQuiz = {
 	"correctAnsTitle": "Great Work !",
-	"correctAnsText": "✅ That's Correct!",
+	"correctAnsText": "✅ <strong>That's Correct!</strong>",
 	"correctAnswerButtonTitle": "Ok, got it",
 	"wrongAnswerTitle": "❌ That's Incorrect!",
 	"wrongAnswerButtonTitle": "Ok, got it"
 }
 
 
-
-const calculateNodePositions = (currentNodePosition: FlowNodePosition, nodeType: string): FlowNodePosition => {
-	let newPosX = parseInt(currentNodePosition.posX);
-	let newPosY = parseInt(currentNodePosition.posY);
-
-	if (nodeType == "question") {
-		newPosX += positionConstants.gapX;
-		newPosY = positionConstants.startY;
-	} else if (nodeType == "questFixedMessage") {
-		newPosY += positionConstants.gapY;
-	} else if (nodeType == "correctAnswer") {
-		newPosX += positionConstants.gapX;
-		newPosY = positionConstants.topY;
-	} else if (nodeType == "correctAnsFixedMessage") {
-		newPosY += positionConstants.gapY;
-	} else if (nodeType == "wrongAnswer") {
-		newPosY = positionConstants.bottomY;
-	} else if (nodeType == "wrongAnsFixedMessage") {
-		newPosY += positionConstants.gapY;
-	}
-
-	return {
-		posX: newPosX.toString(),
-		posY: newPosY.toString()
-	}
-}
-
 export const createQuizNodesAtStartIndex = (flowEdges: FlowEdge[], index: number, nodePositions: FlowNodePosition, sourceNodes: FlowNode[], questionIndex: number, question: IELTSQuizType): any => {
 	let nodeIndex = index;
 	const optionKeys = Object.keys(question.options);
-	const wrongAnsBody = `The right answer is  ${question.correctOption}) ${question.options[question.correctOption]}`
+	const wrongAnsBody = `<p>${question.correctAnswerText}</p>`;
 
+	const correctAnsBody = `<p>${ieltsQuiz.correctAnsText}</p> </br>\n <p>${question.correctAnswerText}</p>`;
 	//Node - Quiz Question
 	const quizButton = createButtonNode(
 		`Quiz ${questionIndex + 1}`,
@@ -73,7 +45,7 @@ export const createQuizNodesAtStartIndex = (flowEdges: FlowEdge[], index: number
 	//Node  - Correct Answer
 	const quizCorrectAns = createButtonNode(
 		ieltsQuiz.correctAnsTitle,
-		ieltsQuiz.correctAnsText,
+		correctAnsBody,
 		[{ text: ieltsQuiz.correctAnswerButtonTitle }],
 		nodePositions);
 	nodeIndex++;
